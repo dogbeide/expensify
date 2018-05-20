@@ -5,7 +5,8 @@
   "author": "David Ogbeide",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "build-watch": "webpack --watch",
     "jest": "jest --config=jest.config.json",
     "watch": "webpack-dev-server"
