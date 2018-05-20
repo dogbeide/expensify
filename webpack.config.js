@@ -2,7 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
-const PUBLIC_PATH = path.join(__dirname, 'public');
+const publicPath = path.join(__dirname, 'public');
+const publicPathDist = path.join(publicPath, 'dist');
 
 module.exports = (env) => {
     const isProduction = env === 'production';
@@ -14,7 +15,7 @@ module.exports = (env) => {
         entry: './src/app.js',
         mode: 'development',
         output: {
-            path: PUBLIC_PATH,
+            path: publicPathDist,
             filename: 'bundle.js'
         },
         module: {
@@ -46,8 +47,9 @@ module.exports = (env) => {
         ],
         devtool: isProduction ? 'source-map' : 'inline-source-map',
         devServer: {
-            contentBase: PUBLIC_PATH,
-            historyApiFallback: true
+            contentBase: publicPath,
+            historyApiFallback: true,
+            publicPath: '/dist/'
         }
     }
 };
