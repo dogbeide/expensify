@@ -1,3 +1,5 @@
 node_modules
 .vscode
 yarn-error.log
+public/styles.css*
+public/bundle.js*
