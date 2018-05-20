@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Expense from './Expense'
+import ExpenseListHeader from './ExpenseListHeader'
+import getExpensesTotal from '../selectors/total'
 import selectExpenses from '../selectors/expenses'
 
 

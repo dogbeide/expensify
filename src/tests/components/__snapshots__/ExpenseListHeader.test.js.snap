@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseListHeader should render with 1 expense 1`] = `
+<h3>
+  Showing 1 
+  expense 
+  totaling: $9.99
+</h3>
+`;
+
+exports[`ExpenseListHeader should render with multiple expenses 1`] = `
+<h3>
+  Showing 3 
+  expenses 
+  totaling: $66.66
+</h3>
+`;
