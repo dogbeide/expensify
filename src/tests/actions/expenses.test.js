@@ -8,7 +8,8 @@ import {
     startAddExpense,
     startRemoveExpense,
     startSetExpenses,
-    setExpenses
+    setExpenses,
+    startEditExpense
 } from '../../actions/expenses'
 import expenses from '../fixtures/expenses'
 import db from '../../firebase/firebase'
@@ -60,6 +61,28 @@ test('should gen edit expense action object', () => {
             amount: 100,
             description: 'testing 123'
         }
+    })
+})
+
+test('should edit expense in firebase', (done) => {
+    const store = createMockStore({})
+    const id = expenses[0].id
+    const updates = {
+        amount: 987,
+        note: 'noted indeed'
+    }
+    store.dispatch(startEditExpense(id, updates)).then(() => {
+        const actions = store.getActions()
+        expect(actions[0]).toEqual({
+            type: 'EDIT_EXPENSE',
+            id,
+            updates
+        })
+        return db.ref(`expenses/${id}`).once('value')
+    }).then((snapshot) => {
+        expect(snapshot.val().amount).toEqual(updates.amount)
+        expect(snapshot.val().note).toEqual(updates.note)
+        done()
     })
 })
 
