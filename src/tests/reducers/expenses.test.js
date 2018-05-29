@@ -62,3 +62,13 @@ test('should not edit an expense if id not fount', () => {
     const state = expensesReducer(expenses, action)
     expect(state).toEqual(expenses)
 })
+
+test('should set expenses', () => {
+    const initState = [expenses[0]]
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses
+    }
+    const endState = expensesReducer(initState, action)
+    expect(endState).toEqual(expenses)
+})

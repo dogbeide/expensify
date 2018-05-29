@@ -5,13 +5,23 @@ import {
     addExpense,
     editExpense,
     removeExpense,
-    startAddExpense
+    startAddExpense,
+    startSetExpenses,
+    setExpenses
 } from '../../actions/expenses'
 import expenses from '../fixtures/expenses'
 import db from '../../firebase/firebase'
 
 
 const createMockStore = configureMockStore([thunk])
+
+beforeEach((done) => {
+    const expensesData = {}
+    expenses.forEach(({ id, description, note, amount, createdAt }) => {
+        expensesData[id] = { description, note, amount, createdAt }
+    })
+    db.ref('expenses').set(expensesData).then(() => done())
+})
 
 test('should gen remove expense action object', () => {
     const action = removeExpense({ id: 'asdf' })
@@ -105,3 +115,23 @@ test('should add default expense to database and store', (done) => {
 //         }
 //     })
 // })
+
+test('should init set expense action', () => {
+    const action = setExpenses(expenses)
+    expect(action).toEqual({
+        type: 'SET_EXPENSES',
+        expenses
+    })
+})
+
+test('should set expenses from firebase', (done) => {
+    const store = createMockStore({})
+    store.dispatch(startSetExpenses()).then(() => {
+        const actions = store.getActions()
+        expect(actions[0]).toEqual({
+            type: 'SET_EXPENSES',
+            expenses
+        })
+        done()
+    })
+})
