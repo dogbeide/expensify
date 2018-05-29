@@ -5,9 +5,9 @@ exports[`should render NotFoundPage 1`] = `
   404 Not Found 
   <Link
     replace={false}
-    to="/"
+    to="/dashboard"
   >
-    Home
+    Dashboard
   </Link>
 </div>
 `;
