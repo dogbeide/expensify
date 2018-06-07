@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 // SET_TEXT_FILTER
 export const setTextFilter = (text = "") => ({
     type: 'SET_TEXT_FILTER',
@@ -25,3 +27,21 @@ export const setEndDate = (date = undefined) => ({
     type: 'SET_END_DATE',
     date
 })
+
+export const showAll = () => {
+    return (dispatch, getState) => {
+        let max = 0, min = Infinity;
+        const expenses = getState().expenses
+        if (expenses.length === 0) {
+            return
+        }
+        const dates = expenses.map((expense) => expense.createdAt)
+        dates.forEach(date => {
+            max = date > max ? date : max
+            min = date < min ? date : min
+        })
+
+        dispatch(setStartDate(moment(min)))
+        dispatch(setEndDate(moment(max)))
+    }
+}

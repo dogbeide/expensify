@@ -3,7 +3,7 @@
     flex-direction: column;
     margin-bottom: $size-md;
 
-    @media (min-width: $desktop-min-width) {
+    @media (min-width: $desktop-min-width-plus) {
         flex-direction: row;
         margin-bottom: $size-lg;
     }
@@ -20,7 +20,7 @@
     //     background: none;
     // }
     
-    @media (min-width: $desktop-min-width) {
+    @media (min-width: $desktop-min-width-plus) {
         margin: 0 $size-sm 0 0;
     }
 }

@@ -6,6 +6,7 @@ import {
     setEndDate,
     setStartDate,
     setTextFilter,
+    showAll,
     sortByAmount,
     sortByDate
 } from '../actions/filters'
@@ -17,6 +18,7 @@ export class ExpenseListFilters extends React.Component {
     }
 
     onDatesChange = ({ startDate, endDate }) => {
+        console.log(startDate, endDate);
         this.props.setStartDate(startDate)
         this.props.setEndDate(endDate)
     }
@@ -35,6 +37,10 @@ export class ExpenseListFilters extends React.Component {
         } else if (e.target.value === 'date') {
             this.props.sortByDate()
         }
+    }
+
+    showAll = () => {
+        this.props.showAll()
     }
 
     render() {
@@ -74,6 +80,12 @@ export class ExpenseListFilters extends React.Component {
                             endDateId="endDate"
                         />
                     </div>
+                    <button
+                        className="button button--show-all"
+                        onClick={this.showAll}
+                    >
+                        Show All
+                    </button>
                 </div>
             </div>
         )
@@ -90,6 +102,7 @@ const mapDispatchToProps = (dispatch) => ({
     setEndDate: (date) => dispatch(setEndDate(date)),
     setStartDate: (date) => dispatch(setStartDate(date)),
     setTextFilter: (text) => dispatch(setTextFilter(text)),
+    showAll: () => dispatch(showAll()),
     sortByAmount: () => dispatch(sortByAmount()),
     sortByDate: () => dispatch(sortByDate())
 })
