@@ -8,15 +8,18 @@ import { removeExpense } from '../actions/expenses'
 
 const Expense = ({description, amount, createdAt, id}) => (
     <div>
-        <Link to={`/edit/${id}`} >
-            <h3>{description}</h3>
+        <Link className="list-item" to={`/edit/${id}`} >
+            <div>
+                <h3 className="list-item__title">{description}</h3>
+                <span className="list-item__subtitle">
+                    {moment(createdAt).format('MMM Do, Y')}
+                </span>
+
+            </div>
+            <h3 className="list-item__data">
+                {numeral(amount / 100).format('$0,0.00')}
+            </h3>
         </Link>
-        <p>
-            {numeral(amount / 100).format('$0,0.00')}
-        </p>
-        <p>
-            {moment(createdAt).format('MMM Do, Y')}
-        </p>
         <hr/>
     </div>
 )

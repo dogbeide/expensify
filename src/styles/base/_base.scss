@@ -1,10 +1,17 @@
+* {
+    // for calculation of overall dimensions in dev console
+    box-sizing: border-box; // default is content-box
+}
+
 html {
     font-size: 62.5%;
 }
 
 body {
+    color: $blick;
     font-family: Helvetica, Arial, sans-serif;
     font-size: $size-md;
+    line-height: 1.6;
 }
 
 button {

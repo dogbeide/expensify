@@ -1,17 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpenseListHeader should render with 1 expense 1`] = `
-<h3>
-  Showing 1 
-  expense 
-  totaling: $9.99
-</h3>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Showing 
+      <span>
+        1
+      </span>
+       expense 
+      totaling: 
+      <span>
+        $9.99
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`ExpenseListHeader should render with multiple expenses 1`] = `
-<h3>
-  Showing 3 
-  expenses 
-  totaling: $66.66
-</h3>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Showing 
+      <span>
+        3
+      </span>
+       expenses 
+      totaling: 
+      <span>
+        $66.66
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
+</div>
 `;

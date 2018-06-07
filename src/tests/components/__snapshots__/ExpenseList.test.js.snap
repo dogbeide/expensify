@@ -2,37 +2,87 @@
 
 exports[`should render ExpenseList with empty message 1`] = `
 <div>
-  <p>
-    No expenses
-  </p>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-item list-item--msg"
+    >
+      <span>
+        No expenses
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render ExpenseList with expenses 1`] = `
 <div>
-  <Expense
-    amount={666}
-    createdAt={0}
-    description="Yums"
-    id="1"
-    key="1"
-    note=""
-  />
-  <Expense
-    amount={999}
-    createdAt={-345600000}
-    description="Food"
-    id="2"
-    key="2"
-    note=""
-  />
-  <Expense
-    amount={1234}
-    createdAt={345600000}
-    description="Yay"
-    id="3"
-    key="3"
-    note=""
-  />
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <Expense
+      amount={666}
+      createdAt={0}
+      description="Yums"
+      id="1"
+      key="1"
+      note=""
+    />
+    <Expense
+      amount={999}
+      createdAt={-345600000}
+      description="Food"
+      id="2"
+      key="2"
+      note=""
+    />
+    <Expense
+      amount={1234}
+      createdAt={345600000}
+      description="Yay"
+      id="3"
+      key="3"
+      note=""
+    />
+  </div>
 </div>
 `;

@@ -1,0 +1,19 @@
+.button {
+    background-color: $teal;
+    border: 0;
+    color: white;
+    display: inline-block;
+    font-size: $font-size-lg;
+    font-weight: 300;
+    line-height: 1;
+    padding: $size-sm;
+    text-decoration: none;
+}
+
+.button--secondary {
+    background-color: #888; // #888888, if they repeat it's cool
+}
+
+.button--link {
+    background: none;
+}
